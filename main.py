@@ -18,7 +18,7 @@ SENHA = os.getenv("SENHA")
 
 def obter_token():
     options = webdriver.ChromeOptions()
-#    options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
@@ -26,12 +26,14 @@ def obter_token():
 
     browser.get(LOGIN_URL)
     time.sleep(5)
+
     # Preenche o login
     browser.find_element(By.ID, "txtEmail").send_keys(USUARIO)
     browser.find_element(By.ID, "txtPass").send_keys(SENHA)
     browser.find_element(By.ID, "Button1").click()
 
-    time.sleep(3)  # espera o redirect
+    time.sleep(3)  
+    # espera o redirect
 
     cookies = browser.get_cookies()
     token = next((c["value"] for c in cookies if c["name"] == "erpusertoken"), "")
@@ -48,8 +50,6 @@ def enviar_token(token):
     print("Webhook status:", resp.status_code, resp.text)
 
 if __name__ == "__main__":
-    print(USUARIO, SENHA)
     token = obter_token()
     print("TOKEN CAPTURADO:", token)
     enviar_token(token)
-    time.sleep(20)

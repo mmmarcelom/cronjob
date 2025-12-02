@@ -26,4 +26,4 @@ jobs:
           USUARIO: ${{ secrets.ERP_USUARIO }}
           SENHA: ${{ secrets.ERP_SENHA }}
         run: |
-          python3 token_bot.py
+          python3 main.py
