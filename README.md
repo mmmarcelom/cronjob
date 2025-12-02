@@ -1,11 +1,12 @@
 Essa é uma solução que criei para automatizar um relatório para um cliente.  
 Coloquei ele aqui como portfólio, demonstrando conhecimentos sobre APIs REST, Github actions, google scripts, webhooks e etc.
+O trabalho todo foi feito em aproximadamente 4 horas. 
+Eu utilizando o ChatGPT para fazer o heavy lifting, mas todo o código foi revisado e adaptado.
 
 Usei nesse projeto:
 - Python e selenium
 - Javascript no google scripts e as classes do Google Docs
 - Github Actions
-- ChatGPT (coloquei ele para fazer o heavy lifting, mas todo o código foi revisado e adaptado)
 
 ## Meu problema era o seguinte:
 
@@ -56,3 +57,6 @@ Como eu utilizei a planilha formatada do google e usei a planilha ao invés do i
 ## Tornar tudo automático
 
 Para facilitar a vida do usuário, criei um menu no google scripts para atualizar tudo com um clique.
+<img width="1034" height="276" alt="image" src="https://github.com/user-attachments/assets/64efcfd4-7cab-45d4-9f7f-70f4f783655f" />
+
+
