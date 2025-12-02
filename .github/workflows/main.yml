@@ -23,7 +23,7 @@ jobs:
 
       - name: Executar bot
         env:
-          USUARIO: ${{ secrets.ERP_USUARIO }}
-          SENHA: ${{ secrets.ERP_SENHA }}
+          USUARIO: ${{ secrets.USUARIO }}
+          SENHA: ${{ secrets.SENHA }}
         run: |
           python3 main.py
