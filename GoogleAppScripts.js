@@ -35,17 +35,26 @@ function doPost(e) {
   }
 }
 
+function onOpen() {
+  const ui = SpreadsheetApp.getUi();
+  ui.createMenu("ERP")
+    .addItem("Atualizar Relatório", "report")
+    .addToUi();
+}
+
 // Report
 function report(){
   
   const ss = SpreadsheetApp.getActiveSpreadsheet()
+  
+  ss.toast("Atualizando relatório...", "ERP", 5)
+
   //const token = ss.getSheetByName('Token').getRange(1,1).getValue()
-  const token = PropertiesService.getScriptProperties().getProperty("TOKEN");
-
-
-  const finalDate = new Date();
-  const startDate = new Date();
-  startDate.setDate(finalDate.getDate() - 30);
+  const token = PropertiesService.getScriptProperties().getProperty("TOKEN")
+  
+  const finalDate = new Date()
+  const startDate = new Date()
+  startDate.setDate(finalDate.getDate() - 30)
 
   const base64 = requestNewReport(token, startDate.toISOString(), finalDate.toISOString())
   const data = convertBase64toSheets(base64)
@@ -55,11 +64,11 @@ function report(){
   const last = sheet.getLastRow()
   if (last > 3) sheet.deleteRows(4, last - 1)
   
-  sheet.getRange(3, 1, values.length, values[0].length).setValues(values); 
+  sheet.getRange(3, 1, values.length, values[0].length).setValues(values)
 }
 
 function requestNewReport(token, startDate, finalDate){
-  const url = 'https://novaapirelatorios.verapp.com.br/v3/ReportMovimentacoesEstoque/excel';
+  const url = 'https://novaapirelatorios.verapp.com.br/v3/ReportMovimentacoesEstoque/excel'
 
   const payload = {
     ascending: false,
